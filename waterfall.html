@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+	<meta charset="UTF-8">
+	<title>瀑布流布局</title>
+	<style>
+		.waterfall{
+			max-width: 900px;
+			margin: 0 auto; 
+			position: relative;
+		}
+		img{
+			margin: 10px; 
+			position: absolute;
+			width: 200px;
+			transition: all 2s;
+		}
+	</style>
+</head>
+<body>
+	<div class="waterfall">
+		<img src="http://via.placeholder.com/100x100" alt="100x100">
+		<img src="http://via.placeholder.com/200x100" alt="200x100">
+		<img src="http://via.placeholder.com/300x100" alt="300x100">
+		<img src="http://via.placeholder.com/400x100" alt="400x100">
+		<img src="http://via.placeholder.com/500x100" alt="500x100">
+		<img src="http://via.placeholder.com/100x100" alt="100x100">
+		<img src="http://via.placeholder.com/100x200" alt="100x200">
+		<img src="http://via.placeholder.com/100x300" alt="100x300">
+		<img src="http://via.placeholder.com/100x400" alt="100x400">
+		<img src="http://via.placeholder.com/100x500" alt="100x500">
+		<img src="http://via.placeholder.com/100x100" alt="100x100">
+		<img src="http://via.placeholder.com/200x200" alt="200x200">
+		<img src="http://via.placeholder.com/300x300" alt="300x300">
+		<img src="http://via.placeholder.com/100x500" alt="100x50">
+		<img src="http://via.placeholder.com/200x100" alt="200x10">
+		<img src="http://via.placeholder.com/100x100" alt="10x100">
+		<img src="http://via.placeholder.com/100x100" alt="100x10">
+		<img src="http://via.placeholder.com/500x500" alt="500x500">
+		<img src="http://via.placeholder.com/400x400" alt="400x400">
+		<img src="http://via.placeholder.com/300x300" alt="300x300">
+		<img src="http://via.placeholder.com/100x500" alt="100x50">
+		<img src="http://via.placeholder.com/200x100" alt="200x10">
+		<img src="http://via.placeholder.com/100x100" alt="10x100">
+		<img src="http://via.placeholder.com/100x100" alt="100x10">
+		<img src="http://via.placeholder.com/100x400" alt="100x400">
+		<img src="http://via.placeholder.com/100x500" alt="100x500">
+		<img src="http://via.placeholder.com/100x100" alt="100x100">
+		<img src="http://via.placeholder.com/200x200" alt="200x200">
+		<img src="http://via.placeholder.com/300x300" alt="300x300">
+		<img src="http://via.placeholder.com/100x500" alt="100x50">
+		<img src="http://via.placeholder.com/200x100" alt="200x10">
+		<img src="http://via.placeholder.com/100x100" alt="10x100">
+		<img src="http://via.placeholder.com/100x100" alt="100x10">
+		<img src="http://via.placeholder.com/500x500" alt="500x500">
+		<img src="http://via.placeholder.com/400x400" alt="400x400">
+		<img src="http://via.placeholder.com/300x300" alt="300x300">
+		<img src="http://via.placeholder.com/100x50" alt="100x50">
+		<img src="http://via.placeholder.com/200x100" alt="200x10">
+		<img src="http://via.placeholder.com/100x100" alt="10x100">
+		<img src="http://via.placeholder.com/100x100" alt="100x10">
+	</div>
+	<script>
+		var colnumber
+		var colHeightArray = []
+		colnumber = Math.floor($('.waterfall').width()/$('img').outerWidth(true))
+		for(var i=0; i<colnumber; i++){
+			colHeightArray[i] = 0;
+		}
+		var minvalue =  colHeightArray[0]
+		var minindex = 0
+		$('img').on('load',function(){
+			minvalue = colHeightArray[0]
+			for(var i=0; i<colnumber;i++){
+				if(colHeightArray[i] <= minvalue){
+					console.log(minvalue)
+					minvalue = colHeightArray[i]
+					minindex = i
+				}
+			}
+			console.log(minvalue)
+			console.log(colHeightArray)
+			$(this).css({
+				left: minindex * $('img').outerWidth(true),
+				top: minvalue
+			})
+			colHeightArray[minindex]+=$(this).outerHeight(true)
+		})
+		$(window).on('resize',function(){
+			var colnumber
+			var colHeightArray = []
+			colnumber = Math.floor($('.waterfall').width()/$('img').outerWidth(true))
+			for(var i=0; i<colnumber; i++){
+				colHeightArray[i] = 0;
+			}
+			var minvalue =  colHeightArray[0]
+			var minindex = 0
+			$('img').each(function(){
+				minvalue = colHeightArray[0]
+				for(var i=0; i<colnumber;i++){
+					if(colHeightArray[i] <= minvalue){
+						console.log(minvalue)
+						minvalue = colHeightArray[i]
+						minindex = i
+					}
+				}
+				console.log(minvalue)
+				console.log(colHeightArray)
+				$(this).css({
+					left: minindex * $('img').outerWidth(true),
+					top: minvalue
+				})
+				colHeightArray[minindex]+=$(this).outerHeight(true)
+			})	
+		})
+	</script>
+</body>
+</html>

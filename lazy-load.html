@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+	<meta charset="UTF-8">
+	<title>图片懒加载</title>
+	<style>
+		.container{
+			max-width: 800px;
+			margin: 0 auto; 
+		}
+		.container:after{
+			content: '';
+			display: block;
+			clear: both;
+		}
+		img{
+			float:left;
+			width: 50%;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="container">
+		<img src="http://smashinghub.com/wp-content/uploads/2014/08/cool-loading-animated-gif-6.gif" alt="1" data-src='http://energy.people.com.cn/mediafile/201006/21/F201006210831501854137711.jpg'>
+		<img src="http://smashinghub.com/wp-content/uploads/2014/08/cool-loading-animated-gif-6.gif" alt="2" data-src='http://energy.people.com.cn/mediafile/201006/21/F201006210831463132417251.jpg'>
+		<img src="http://smashinghub.com/wp-content/uploads/2014/08/cool-loading-animated-gif-6.gif" alt="3" data-src='http://energy.people.com.cn/mediafile/201006/21/F201006210831442844141415.jpg'>
+		<img src="http://smashinghub.com/wp-content/uploads/2014/08/cool-loading-animated-gif-6.gif" alt="4" data-src='http://energy.people.com.cn/mediafile/201006/21/F201006210831412220383612.jpg'>
+		<img src="http://smashinghub.com/wp-content/uploads/2014/08/cool-loading-animated-gif-6.gif" alt="5" data-src='http://energy.people.com.cn/mediafile/201006/21/F201006210831382595520182.jpg'>
+		<img src="http://smashinghub.com/wp-content/uploads/2014/08/cool-loading-animated-gif-6.gif" alt="6" data-src='http://energy.people.com.cn/mediafile/201006/21/F201006210831346547502629.jpg'>
+		<img src="http://smashinghub.com/wp-content/uploads/2014/08/cool-loading-animated-gif-6.gif" alt="7" data-src='http://energy.people.com.cn/mediafile/201006/21/F201006210831311579017245.jpg'>
+		<img src="http://smashinghub.com/wp-content/uploads/2014/08/cool-loading-animated-gif-6.gif" alt="8" data-src='http://energy.people.com.cn/mediafile/201006/21/F201006210831281105630453.jpg'>
+		<img src="http://smashinghub.com/wp-content/uploads/2014/08/cool-loading-animated-gif-6.gif" alt="9" data-src='http://energy.people.com.cn/mediafile/201006/21/F201006210831242472635992.jpg'>
+		<img src="http://smashinghub.com/wp-content/uploads/2014/08/cool-loading-animated-gif-6.gif" alt="10" data-src='http://energy.people.com.cn/mediafile/201006/21/F201006210831225262954412.jpg'>
+		<img src="http://smashinghub.com/wp-content/uploads/2014/08/cool-loading-animated-gif-6.gif" alt="11" data-src='http://energy.people.com.cn/mediafile/201006/21/F201006210831192622920339.jpg'>
+		<img src="http://smashinghub.com/wp-content/uploads/2014/08/cool-loading-animated-gif-6.gif" alt="12" data-src='http://energy.people.com.cn/mediafile/201006/21/F201006210831165683233462.jpg'>
+		<img src="http://smashinghub.com/wp-content/uploads/2014/08/cool-loading-animated-gif-6.gif" alt="13" data-src='http://energy.people.com.cn/mediafile/201006/21/F201006210831131014625955.jpg'>
+		<img src="http://smashinghub.com/wp-content/uploads/2014/08/cool-loading-animated-gif-6.gif" alt="14" data-src='http://energy.people.com.cn/mediafile/201006/21/F201006210831081247826642.jpg'>
+		<img src="http://smashinghub.com/wp-content/uploads/2014/08/cool-loading-animated-gif-6.gif" alt="15" data-src='http://energy.people.com.cn/mediafile/201006/21/F201006210831022553314852.jpg'>
+		<img src="http://smashinghub.com/wp-content/uploads/2014/08/cool-loading-animated-gif-6.gif" alt="16" data-src='http://energy.people.com.cn/mediafile/201006/21/F201006210830583928320502.jpg'>
+		<img src="http://smashinghub.com/wp-content/uploads/2014/08/cool-loading-animated-gif-6.gif" alt="17" data-src='http://energy.people.com.cn/mediafile/201006/21/F201006210830542577118868.jpg'>
+		<img src="http://smashinghub.com/wp-content/uploads/2014/08/cool-loading-animated-gif-6.gif" alt="18" data-src='http://energy.people.com.cn/mediafile/201006/21/F201006210830517282251173.jpg'>
+		<img src="http://smashinghub.com/wp-content/uploads/2014/08/cool-loading-animated-gif-6.gif" alt="19" data-src='http://energy.people.com.cn/mediafile/201006/21/F201006210830481091268111.jpg'>
+		<img src="http://smashinghub.com/wp-content/uploads/2014/08/cool-loading-animated-gif-6.gif" alt="20" data-src='http://energy.people.com.cn/mediafile/201006/21/F201006210830453159832281.jpg'>
+		<img src="http://smashinghub.com/wp-content/uploads/2014/08/cool-loading-animated-gif-6.gif" alt="21" data-src='http://energy.people.com.cn/mediafile/201006/21/F201006210830274354188531.jpg'>
+		<img src="http://smashinghub.com/wp-content/uploads/2014/08/cool-loading-animated-gif-6.gif" alt="22" data-src='http://energy.people.com.cn/mediafile/201006/21/F201006210830251590621018.jpg'>
+		<img src="http://smashinghub.com/wp-content/uploads/2014/08/cool-loading-animated-gif-6.gif" alt="23" data-src='http://energy.people.com.cn/mediafile/201006/21/F201006210830222012617538.jpg'>
+		<img src="http://smashinghub.com/wp-content/uploads/2014/08/cool-loading-animated-gif-6.gif" alt="24" data-src='http://energy.people.com.cn/mediafile/201006/21/F201006210830208653166417.jpg'>
+		<img src="http://smashinghub.com/wp-content/uploads/2014/08/cool-loading-animated-gif-6.gif" alt="25" data-src='http://energy.people.com.cn/mediafile/201006/21/F201006210830181081229428.jpg'>
+		<img src="http://smashinghub.com/wp-content/uploads/2014/08/cool-loading-animated-gif-6.gif" alt="26" data-src='http://energy.people.com.cn/mediafile/201006/21/F201006210830151943330911.jpg'>
+		<img src="http://smashinghub.com/wp-content/uploads/2014/08/cool-loading-animated-gif-6.gif" alt="27" data-src='http://energy.people.com.cn/mediafile/201006/21/F201006210830121053894372.jpg'>
+		<img src="http://smashinghub.com/wp-content/uploads/2014/08/cool-loading-animated-gif-6.gif" alt="28" data-src='http://energy.people.com.cn/mediafile/201006/21/F201006210830091980829947.jpg'>
+		<img src="http://smashinghub.com/wp-content/uploads/2014/08/cool-loading-animated-gif-6.gif" alt="29" data-src='http://energy.people.com.cn/mediafile/201006/21/F201006210830077297313132.jpg'>
+		<img src="http://smashinghub.com/wp-content/uploads/2014/08/cool-loading-animated-gif-6.gif" alt="30" data-src='http://energy.people.com.cn/mediafile/201006/21/F201006210830042849815745.jpg'>
+		<img src="http://smashinghub.com/wp-content/uploads/2014/08/cool-loading-animated-gif-6.gif" alt="31" data-src='http://energy.people.com.cn/mediafile/201006/21/F201006210830022328231831.jpg'>
+		<img src="http://smashinghub.com/wp-content/uploads/2014/08/cool-loading-animated-gif-6.gif" alt="32" data-src='http://energy.people.com.cn/mediafile/201006/21/F201006210829593181023561.jpg'>
+		<img src="http://smashinghub.com/wp-content/uploads/2014/08/cool-loading-animated-gif-6.gif" alt="33" data-src='http://energy.people.com.cn/mediafile/201006/21/F201006210829563024122991.jpg'>
+		<img src="http://smashinghub.com/wp-content/uploads/2014/08/cool-loading-animated-gif-6.gif" alt="34" data-src='http://energy.people.com.cn/mediafile/201006/21/F201006210829533106288311.jpg'>
+		<img src="http://smashinghub.com/wp-content/uploads/2014/08/cool-loading-animated-gif-6.gif" alt="35" data-src='http://energy.people.com.cn/mediafile/201006/21/F201006210829513220875483.jpg'>
+		<img src="http://smashinghub.com/wp-content/uploads/2014/08/cool-loading-animated-gif-6.gif" alt="36" data-src='http://energy.people.com.cn/mediafile/201006/21/F201006210829486437268903.jpg'>
+		<img src="http://smashinghub.com/wp-content/uploads/2014/08/cool-loading-animated-gif-6.gif" alt="37" data-src='http://energy.people.com.cn/mediafile/201006/21/F201006210829461444431186.jpg'>
+		<img src="http://smashinghub.com/wp-content/uploads/2014/08/cool-loading-animated-gif-6.gif" alt="38" data-src='http://energy.people.com.cn/mediafile/201006/21/F201006210829432730115297.jpg'>
+		<img src="http://smashinghub.com/wp-content/uploads/2014/08/cool-loading-animated-gif-6.gif" alt="39" data-src='http://energy.people.com.cn/mediafile/201006/21/F201006210829412860515082.jpg'>
+		<img src="http://smashinghub.com/wp-content/uploads/2014/08/cool-loading-animated-gif-6.gif" alt="40" data-src='http://energy.people.com.cn/mediafile/201006/21/F201006210829381928867821.jpg'>
+	</div>
+	<script>
+		function isshow($node){
+			return $node.offset().top <= $(window).height() +$(window).scrollTop()
+		}
+		function loadimg($img){
+			$img.attr('src',$img.attr('data-src'))
+			$img.attr('data-loaded','true')
+		}
+		$(window).on('scroll',function(){
+			$('img').not('[data-loaded]').each(function(){
+				if(isshow($(this))){
+					loadimg($(this))
+				}
+			})
+		})
+
+	</script>
+</body>
+</html>
